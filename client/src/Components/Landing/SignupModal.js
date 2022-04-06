@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function SignupModal({ setSignUpModalOn }) {
     const [signUpData, setSignUpData] = useState({
@@ -10,6 +11,7 @@ function SignupModal({ setSignUpModalOn }) {
     })
     const [errors, setErrors] = useState('')
     const [showErrors, setShowErrors] = useState(false)
+    const navigate = useNavigate();
 
   
     const handleSignUp = (e) => {
@@ -25,6 +27,7 @@ function SignupModal({ setSignUpModalOn }) {
         .then(r => {
             if (r.ok) {
                 r.json().then(user => console.log(user))
+                navigate('/home')
             } else {
                 r.json().then(data => setErrors(data.errors))
                 setShowErrors(true)
@@ -33,10 +36,10 @@ function SignupModal({ setSignUpModalOn }) {
     }
 
     const errorsArray = errors ? 
-        errors.map(error => <li key={error} className="text-xs text-red-500 pb-3">{error}</li>) : null
+        errors.map(error => <p key={error} className="text-xs text-red-500 pb-3">{error}</p>) : null
 
   return (
-    <div className="fixed inset-0 z-50">
+    <div className="backdrop-blur-sm fixed inset-0 z-50">
         <div className="flex h-screen justify-center items-center ">
             <div className="flex-col justify-center  bg-white py-12 px-20 border-4 border-black-400 rounded-xl ">
                 <div className="flex  text-lg  text-zinc-600   mb-10" >Signup For Website</div>

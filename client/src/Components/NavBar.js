@@ -26,13 +26,13 @@ function NavBar() {
   return (
     <div className="flex mx-2 my-5 justify-end">
     <div className="px-8">
-      <button onClick={clickedLogin}>Login</button>
+      <button className="text-blue-500" onClick={clickedLogin}>Login</button>
     </div>
     <div className="px-8">
-      <button onClick={clickedSignUp} href="">SignUp</button>
+      <button className="text-blue-500" onClick={clickedSignUp} href="">SignUp</button>
     </div>
     <div className="px-8">
-      <button onClick={clickedLogout}>Logout</button>
+      <button className="text-blue-500" onClick={clickedLogout}>Logout</button>
     </div>
     {loginModalOn && < LoginModal setLoginModalOn={setLoginModalOn} />}
     {signUpModalOn && < SignupModal setSignUpModalOn={setSignUpModalOn} />}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import {useNavigate} from "react-router-dom"
 
 
 function LoginModal({ setLoginModalOn }) {
@@ -8,6 +9,7 @@ function LoginModal({ setLoginModalOn }) {
     })
     const [error, setError] = useState('')
     const [showError, setShowError] = useState(false)
+    const navigate = useNavigate();
 
 
     function handleSubmit(e){
@@ -24,6 +26,7 @@ function LoginModal({ setLoginModalOn }) {
             if(r.ok){
                 r.json().then((console.log('SUCCESS')))
                 setLoginModalOn(false)
+                navigate("/home")
             } else {
                 r.json().then(data => setError(data.error))
                 setShowError(true)
