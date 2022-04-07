@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-function SignupModal({ setSignUpModalOn }) {
+function SignupModal({ setSignUpModalOn, setUser }) {
     const [signUpData, setSignUpData] = useState({
         username: '',
         password: '',
@@ -26,7 +26,7 @@ function SignupModal({ setSignUpModalOn }) {
         })
         .then(r => {
             if (r.ok) {
-                r.json().then(user => console.log(user))
+                r.json().then(user => setUser(() => user))
                 navigate('/home')
             } else {
                 r.json().then(data => setErrors(data.errors))

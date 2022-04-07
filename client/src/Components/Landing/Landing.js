@@ -10,7 +10,6 @@ function Landing() {
 
   return (
     <>
-    <NavBar />
     <div className="py-20 max-h-screen bg-cover bg-center bg-no-repeat"  style={{backgroundImage: "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,.5)), url('https://i.ibb.co/j3x9Yh0/spencer-everett-1h112-EKg-BLE-unsplash.jpg')"}}>
         <div className="container px-6 mt-40 mx-auto">
             <h2 className="text-4xl font-bold text-white mx-auto mb-2">Rentr</h2>
@@ -29,8 +28,6 @@ function Landing() {
         <Card />
         <Card />
       </div>
-
-    <Footer />
     </>
   )
 }
