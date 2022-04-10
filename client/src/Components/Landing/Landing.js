@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import NavBar from '../NavBar.js'
 import Footer from '../Footer.js'
 import Card from '../Card.js'
@@ -7,6 +7,16 @@ import Search from '../Search.js'
 
 
 function Landing() {
+  const [recent, setRecent] = useState(null)
+
+  useEffect(() => {
+    fetch('/recent')
+    .then(r => r.json())
+    .then(data => setRecent(data))
+  }, [])
+
+  const recentMap = recent ? 
+    recent.map(property => <Card key={property.id} props={property}/>) : null
 
   return (
     <>
@@ -24,9 +34,7 @@ function Landing() {
       </div>
 
       <div className="grid p-10 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
-        <Card />
-        <Card />
-        <Card />
+        {recentMap}
       </div>
     </>
   )

@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_many :properties
+    has_one :property
     has_many :favorites
     has_secure_password
 
