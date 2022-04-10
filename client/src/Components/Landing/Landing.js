@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import NavBar from '../NavBar.js'
 import Footer from '../Footer.js'
 import Card from '../Card.js'
@@ -7,10 +7,19 @@ import Search from '../Search.js'
 
 
 function Landing() {
+  const [recent, setRecent] = useState(null)
+
+  useEffect(() => {
+    fetch('/recent')
+    .then(r => r.json())
+    .then(data => setRecent(data))
+  }, [])
+
+  const recentMap = recent ? 
+    recent.map(property => <Card key={property.id} props={property}/>) : null
 
   return (
     <>
-    <NavBar />
     <div className="py-20 max-h-screen bg-cover bg-center bg-no-repeat"  style={{backgroundImage: "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,.5)), url('https://i.ibb.co/j3x9Yh0/spencer-everett-1h112-EKg-BLE-unsplash.jpg')"}}>
         <div className="container px-6 mt-40 mx-auto">
             <h2 className="text-4xl font-bold text-white mx-auto mb-2">Rentr</h2>
@@ -25,12 +34,8 @@ function Landing() {
       </div>
 
       <div className="grid p-10 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
-        <Card />
-        <Card />
-        <Card />
+        {recentMap}
       </div>
-
-    <Footer />
     </>
   )
 }

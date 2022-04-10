@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {useNavigate} from "react-router-dom"
 
 
-function LoginModal({ setLoginModalOn }) {
+function LoginModal({ setLoginModalOn, setUser }) {
     const [loginData, setLoginData] = useState({
         username: '',
         password: ''
@@ -24,7 +24,7 @@ function LoginModal({ setLoginModalOn }) {
         })
         .then(r => {
             if(r.ok){
-                r.json().then((console.log('SUCCESS')))
+                r.json().then(data => setUser(() => data))
                 setLoginModalOn(false)
                 navigate("/home")
             } else {
