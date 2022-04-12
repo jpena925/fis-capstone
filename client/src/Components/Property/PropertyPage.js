@@ -31,8 +31,8 @@ function PropertyPage() {
                     <p>Available: {property.date_available}</p>
                     <p>{property.pets ? 'Pets ✔️' : 'Pets ❌'} </p>
                 </div>
-                <div classname='flex'>
-                    <p className='flex justify-center'>Additional Notes: {property.features}</p>
+                <div className='flex justify-center'>
+                    <p>Additional Notes: {property.features}</p>
                 </div>
                 <div className='mt-10'>
                     <p className='flex justify-center'>Contact the Current Tenant(s):</p>

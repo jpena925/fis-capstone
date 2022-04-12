@@ -1,4 +1,5 @@
 import React from 'react'
+import kairos from '../kairos1.png'
 
 function Footer() {
   return (
@@ -7,17 +8,17 @@ function Footer() {
             <div className="lg:w-1/3">
                 <a href="" className="flex justify-center">
                     <div className="flex w-12 h-12">
-                        <img src="" className="h-8 w-8 mr-2" alt=""/>
+                        <img src={kairos} className="h-8 w-8 mr-2" alt=""/>
                     </div>
                     <span className="font-semibold text-gray-500 text-2xl">
-                        Rentr
+                        kairos
                     </span>
                 </a>
             </div>
 
             <div className="grid grid-cols-2 gap-x-3 gap-y-8 text-sm sm:grid-cols-3 lg:w-2/3">
                 <div className="space-y-3">
-                    <h3 className="text-blue-500 uppercase tracking-wide">About Us</h3>
+                    <h3 className="text-slate-400 uppercase tracking-wide">About Us</h3>
                     <ul className="space-y-1">
                         <div>
                             <a href="">Our Story</a>
@@ -28,7 +29,7 @@ function Footer() {
                     </ul>
                 </div>
                 <div className="space-y-3">
-                    <h3 className="text-blue-500 uppercase tracking-wide">Contact Us</h3>
+                    <h3 className="text-slate-400 uppercase tracking-wide">Contact Us</h3>
                     <ul className="space-y-1">
                         <div>
                             <a href="">support@rentr.com</a>
@@ -39,7 +40,7 @@ function Footer() {
                     </ul>
                 </div>
                 <div className="space-y-3">
-                    <h3 className="text-blue-500 uppercase tracking-wide">Social Media</h3>
+                    <h3 className="text-slate-400 uppercase tracking-wide">Social Media</h3>
                     <div className="flex justify-start">
                         <a href="#" title="Facebook" className="flex items-center p-1">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32"
@@ -68,7 +69,7 @@ function Footer() {
                 </div>
             </div>
         </div>
-        <div className="text-center text-blue-500 text-sm py-6">
+        <div className="text-center text-slate-400 text-sm py-6">
             Created By: Jack Peña
         </div>
     </footer>

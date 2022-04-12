@@ -8,9 +8,11 @@ function Property() {
     const [editProperty, setEditProperty] = useState(false)
 
     useEffect(() => {
+        if(user && user.property){
         fetch(`properties/${user.property.id}`)
         .then(r => r.json())
         .then(data => setProperty(data))
+        }
     }, [user])
 
     function handleSubmitEditProperty(){
@@ -27,6 +29,7 @@ function Property() {
                 <div>
                 <p className='text-lg font-semibold'>Your Listing:</p>
                 </div>
+                
                 <div>
                 <button className='border border-black mr-1 px-2' onClick={() => setEditProperty(true)}>edit</button>
                 <button className='border border-black ml-1 px-2'>delete</button>
@@ -80,14 +83,14 @@ function Property() {
                 </form>
             :
                 <div>
-                    <p>{property.address}</p>
-                    <p>{property.sqft} sq.ft.</p>
-                    <p>${property.price} </p>
+                    <p>{property?.address}</p>
+                    <p>{property?.sqft} sq.ft.</p>
+                    <p>${property?.price} </p>
                     {/* <p>Landlord Verified: {property.landlord ? '✅' : '❎'}</p> */}
-                    <p>{`${property.br} Bedroom / ${property.ba} Bath`}</p>
-                    <p>Pets: {property.pets ? 'Yes' : 'No'}</p>
-                    <p>Date Available: {property.date_available}</p>
-                    <p>Features: {property.features}</p>
+                    <p>{`${property?.br} Bedroom / ${property?.ba} Bath`}</p>
+                    <p>Pets: {property?.pets ? 'Yes' : 'No'}</p>
+                    <p>Date Available: {property?.date_available}</p>
+                    <p>Features: {property?.features}</p>
                 </div>
             }
         </div>
