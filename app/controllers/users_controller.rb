@@ -12,6 +12,13 @@ class UsersController < ApplicationController
         render json: user, status: :ok, include: ['favorites.property']
     end
 
+
+    def update
+        user = User.find(params[:id])
+        user.update!(user_params)
+        render json: user, status: :accepted
+    end
+
     def create 
         user = User.create(user_params)
         if user.valid? 
@@ -25,7 +32,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:username, :email, :password, :password_confirmation, :zip)
+        params.permit(:username, :email, :password, :password_confirmation, :zip, :phone)
     end
 
     def render_invalid_res(invalid)

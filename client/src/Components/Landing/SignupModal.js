@@ -27,6 +27,7 @@ function SignupModal({ setSignUpModalOn, setUser }) {
         .then(r => {
             if (r.ok) {
                 r.json().then(user => setUser(() => user))
+                setSignUpModalOn(false)
                 navigate('/home')
             } else {
                 r.json().then(data => setErrors(data.errors))

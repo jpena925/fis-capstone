@@ -1,21 +1,17 @@
 import React, { useEffect, useState, useContext } from 'react'
 import Card from '../Card'
 import { UserContext } from '../../App'
+import { useLocation } from 'react-router-dom'
 
-function CardContainer() {
+function CardContainer({feed, setFeed}) {
     const user = useContext(UserContext)
-    const [feed, setFeed] = useState(null)
-    // const [zip, setZip] = useState(user.zip)
-
-    useEffect(() => {
-        fetch('/properties')
-        .then(r => r.json())
-        .then(data => setFeed(data))
-    }, [])
+    let { search } = useLocation();
+      search = (search.replace(/\D/g,''))
 
 
-    const feedMap = feed && user ? 
-        feed.filter(property => property?.zip === parseInt(user?.zip)).map(property => <Card key={property.id} props={property}/>) 
+
+    const feedMap = feed ? 
+        feed.filter(property => property?.zip === parseInt(user?.zip || search)).map(property => <Card key={property.id} props={property}/>) 
         : null
 
     return (

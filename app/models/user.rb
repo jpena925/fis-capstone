@@ -6,4 +6,5 @@ class User < ApplicationRecord
     validates :username, presence: true, uniqueness: true
     validates :email, presence: true, uniqueness: true
     validates :zip, presence: true, length: { is: 5 }
+    validates :phone, length: { is: 10 }, allow_blank: true
 end

@@ -7,9 +7,11 @@ function FavoriteCont() {
     const [wholeUser, setWholeUser] = useState(null)
 
     useEffect(() => {
+        if(user){
         fetch(`/users/${user.id}`)
         .then(r => r.json())
         .then(wholeUser => setWholeUser(wholeUser))
+        }
     }, [user])
 
     console.log(wholeUser?.favorites)

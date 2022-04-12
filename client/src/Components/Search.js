@@ -7,8 +7,7 @@ function Search() {
 
     function handleZipSearch(e){
         e.preventDefault()
-        console.log(search)
-        navigate('/home')
+        navigate(`/home?search=${search}`)
     }
 
     return (
