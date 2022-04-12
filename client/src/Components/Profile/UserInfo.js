@@ -42,7 +42,7 @@ function UserInfo() {
         })
     }
 
-    console.log(showErrors)
+
     const errorsMap = errors ? 
         errors.map(error => <p key={error} className='text-red-500'>{error}</p>) : null
 
