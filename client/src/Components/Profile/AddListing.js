@@ -11,11 +11,53 @@ function AddListing() {
                 <button className='border border-black ml-1 px-2' onClick={() => setShowAddForm(true)}>Add a Listing!</button>
             </div>
             {showAddForm ? 
-                <form>
+                <form className=''>
                     <div className='flex'>
-                        <label htmlFor="">Address</label>
+                        <label htmlFor="">Address:</label>
+                        <input className='border-2 w-3/4' type="text" />
+                    </div>
+                    <div className='flex'>
+                        <label htmlFor="">Sq.Ft.:</label>
+                        <input className='border-2 w-1/6' type="text" />
+                    </div>
+                    <div className='flex'>
+                        <label htmlFor="" className='mr-6'>Bedrooms:</label>
+                        <select name="BR">
+                            <option value="Studio">Studio</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                    <div className='flex'>
+                        <label htmlFor="" className='mr-6'>Bathrooms:</label>
+                        <select name="BA">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                    <div className='flex'>
+                        <label htmlFor="">Price: $</label>
+                        <input className='border-2 w-1/6' type="text" />
+                    </div>
+                    <div className='flex'>
+                        <label htmlFor="">Date Available:</label>
+                        <input className='border-2' type="date" />
+                    </div>
+                    <div className='flex'>
+                        <label htmlFor="" className='mr-6'>Pets:</label>
+                        <input type="checkbox" className='-ml-2' />
+                    </div>
+                    <div className=''>
+                        <label htmlFor="" className='mr-6'>Features:</label>
+                        <textarea className='block border w-64 resize-none'></textarea>
+                    </div>
+                    <div className='flex'>
+                        <label htmlFor="">Photos:</label>
                         <input className='border-2' type="text" />
                     </div>
+                    <button type='submit' className='border border-black ml-1 px-2 mt-3' onClick={() => setShowAddForm(false)}>submit</button>
                 </form> 
                 : null}
         </div>

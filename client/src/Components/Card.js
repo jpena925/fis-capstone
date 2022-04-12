@@ -5,7 +5,7 @@ import { UserContext } from '../App'
 
 function Card({ props }) {
     const user = useContext(UserContext)
-    const userLikes = user ? user.favorites.map(like => like.property.id) : null
+    const userLikes = user ? user?.favorites.map(like => like.property?.id) : null
     //check if this property is a favorite
     //if not, add it to the favorite, otherwise delete
 
@@ -46,10 +46,10 @@ function Card({ props }) {
                     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{props?.ba} Baths</span>
                 </div>
                 <div className="flex px-6 pt-4 pb-10">
-                    <Link className="inline-block bg-slate-500 rounded-full px-4 py-1 font-bold text-white mr-2 mb-2" to={`/property/${props.id}`}>View Property</Link>
+                    <Link className="inline-block bg-slate-500 rounded-full px-4 py-1 font-bold text-white mr-2 mb-2" to={`/property/${props?.id}`}>View Property</Link>
                         {user ?
                         <div>
-                        {userLikes.includes(props.id) ? 
+                        {userLikes.includes(props?.id) ? 
                         <button className='ml-5 rounded-full px-2' onClick={() => handleLike('dislike')}><AiFillHeart /></button> :
                         <button className='ml-5 rounded-full px-2' onClick={() => handleLike('like')}><AiOutlineHeart /></button>
                         }

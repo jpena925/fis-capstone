@@ -29,7 +29,7 @@ function Landing() {
     </div>
     
 
-      <div className="mt-10 flex p-10 justify-center">
+      <div className="mt-8 flex p-10 justify-center">
         <h2 className="text-3xl text-gray-500">Recent Listings</h2>
       </div>
 
