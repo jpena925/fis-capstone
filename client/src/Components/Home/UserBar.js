@@ -1,17 +1,22 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { UserContext } from '../../App'
 import { Link } from 'react-router-dom'
 
 function UserBar() {
     const user = useContext(UserContext)
+    const [favorites, setFavorites] = useState(user?.favorites)
 
-    const favoriteMap =
+    useEffect(() => {
+        setFavorites(user?.favorites)
+    }, [user])
+
+    const favoriteMap = user ?
         user?.favorites.map(fav => 
             <Link to={`/property/${fav.property?.id}`} 
                 key={fav.id} 
                 className='text-xs block mr-5 mt-5 underline text-blue-500'>
             {fav.property?.address}
-            </Link>)
+            </Link>) : null
 
     
     return (

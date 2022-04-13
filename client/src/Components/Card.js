@@ -3,12 +3,11 @@ import { Link } from 'react-router-dom'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { UserContext } from '../App'
 
-function Card({ props }) {
+function Card({ props, setUser }) {
     const user = useContext(UserContext)
     const [userFavorites, setUserFavorites] = useState(user?.favorites)
-    const userLikes = user ? userFavorites.map(like => like.property?.id) : null
+    const userLikes = user ? userFavorites?.map(like => like.property?.id) : null
     
-
 
     function handleLike(type){
         if(type === 'like'){
@@ -21,8 +20,9 @@ function Card({ props }) {
             })
             .then(r => r.json())
             .then(data => {
-                console.log(data)
-                setUserFavorites([...userFavorites, {id: data.id, property: data.property}])})
+                setUserFavorites([...userFavorites, {id: data.id, property: data.property}])
+                setUser({...user, favorites: [...userFavorites, {id: data.id, property: data.property}]})
+            })
             
         } else {
             const favId = userFavorites.find(el => el.property.id === props.id).id
@@ -30,10 +30,11 @@ function Card({ props }) {
                 method: 'DELETE',
             })
             .then(setUserFavorites([...userFavorites.filter(fav => fav.id !== favId)]))
+            .then(setUser({...user, favorites: [...userFavorites.filter(fav => fav.id !== favId)]}))
         }
     }
 
-    console.log(userFavorites)
+    console.log('after like', user)
 
     return (
             <div className="rounded overflow-hidden shadow-lg">
@@ -53,7 +54,7 @@ function Card({ props }) {
                     <Link className="inline-block bg-slate-500 rounded-full px-4 py-1 font-bold text-white mr-2 mb-2" to={`/property/${props?.id}`}>View Property</Link>
                         {user ?
                         <div>
-                        {userLikes.includes(props?.id) ? 
+                        {userLikes?.includes(props?.id) ? 
                         <button className='ml-5 rounded-full px-2' onClick={() => handleLike('dislike')}><AiFillHeart /></button> :
                         <button className='ml-5 rounded-full px-2' onClick={() => handleLike('like')}><AiOutlineHeart /></button>
                         }

@@ -5,7 +5,7 @@ import UserBar from './UserBar'
 import HomeSearch from './HomeSearch'
 import CardContainer from './CardContainer'
 
-function Homepage() {
+function Homepage({setUser}) {
     const [homeSearch, setHomeSearch] = useState(null)
     const [filters, setFilters] = useState({
         br: -1,
@@ -45,7 +45,7 @@ function Homepage() {
         </div>
         <div className='item2 col-span-3'>
             <HomeSearch homeSearch={homeSearch} setHomeSearch={setHomeSearch} filters={filters} setFilters={setFilters} onHomeSearch={handleHomeSearch}/>
-            <CardContainer feed={feed} setFeed={setFeed} filtered={filtered}/>
+            <CardContainer feed={feed} setFeed={setFeed} filtered={filtered} setUser={setUser}/>
         </div>
     </div>
   )
