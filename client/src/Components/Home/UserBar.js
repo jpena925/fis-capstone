@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom'
 function UserBar() {
     const user = useContext(UserContext)
 
-    const favoriteMap = user?.favorites ?
-        user.favorites.map(fav => 
+    const favoriteMap =
+        user?.favorites.map(fav => 
             <Link to={`/property/${fav.property?.id}`} 
                 key={fav.id} 
                 className='text-xs block mr-5 mt-5 underline text-blue-500'>
             {fav.property?.address}
-            </Link>) 
-            : null
+            </Link>)
+
     
     return (
             <div>
@@ -37,7 +37,8 @@ function UserBar() {
                     {favoriteMap}
                 </div>
                 </>
-            :                 <>
+            :                 
+            <>
             <div>
                 <p className='text-xl font-semibold mt-10 mb-3'>Welcome!</p>
                 <Link className='mx-5 text-2xl mt-3 mb-3 underline text-blue-200' to={'/'}>Please Log In</Link>

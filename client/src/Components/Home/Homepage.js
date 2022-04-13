@@ -37,7 +37,7 @@ function Homepage() {
         }))
     }
 
-    console.log('homepage',feed)
+
   return (
     <div className="grid grid-cols-4">
         <div className='item1 col-span-1 border-r-4 mx-5'>

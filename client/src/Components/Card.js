@@ -5,10 +5,9 @@ import { UserContext } from '../App'
 
 function Card({ props }) {
     const user = useContext(UserContext)
-    const userLikes = user ? user?.favorites.map(like => like.property?.id) : null
-    //check if this property is a favorite
-    //if not, add it to the favorite, otherwise delete
-
+    const [userFavorites, setUserFavorites] = useState(user?.favorites)
+    const userLikes = user ? userFavorites.map(like => like.property?.id) : null
+    
 
 
     function handleLike(type){
@@ -21,22 +20,27 @@ function Card({ props }) {
                 body: JSON.stringify({ user_id: user.id, property_id: props.id})
             })
             .then(r => r.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                setUserFavorites([...userFavorites, {id: data.id, property: data.property}])})
             
         } else {
-            const favId = user.favorites.find(el => el.property.id === props.id).id
+            const favId = userFavorites.find(el => el.property.id === props.id).id
             fetch(`/favorites/${favId}`, {
                 method: 'DELETE',
             })
+            .then(setUserFavorites([...userFavorites.filter(fav => fav.id !== favId)]))
         }
     }
+
+    console.log(userFavorites)
 
     return (
             <div className="rounded overflow-hidden shadow-lg">
                 <img className="w-full" src="" alt="" />
                 <div className="px-6 py-4">
                     <div className="font-bold text-md mb-2">{props?.address}</div>
-                    <img src={props?.images[0].image_url} alt='card pic' />
+                    {props?.images.length ? <img src={props?.images[0]?.image_url} alt='card pic' /> : <img src='https://homes.madeeasy.app/img/no-propertyfound.png' alt='card pic' />}
                 </div>
                 <div className="px-6 pt-4 pb-2">
                     <span className="inline-block text-blue-300 font-bold text-sm px-3 py-1 mr-2 mb-2">${props?.price}</span>

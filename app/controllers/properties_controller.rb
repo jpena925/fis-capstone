@@ -13,18 +13,25 @@ class PropertiesController < ApplicationController
     end
 
     def create 
-        property = User.create(property_params)
+        property = Property.create(property_params)
         if property.valid? 
             render json: property, status: :created 
         else 
             render json: { errors: property.errors.full_messages }, status: :unprocessable_entity
         end
+
     end
 
     def update
         property = Property.find(params[:id])
         property.update!(property_params)
         render json: property, status: :accepted
+    end
+
+    def destroy
+        property = Property.find(params[:id])
+        property.destroy
+        head :no_content
     end
 
     def recent

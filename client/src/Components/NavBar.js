@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import LoginModal from './Landing/LoginModal';
 import SignupModal from './Landing/SignupModal';
 import { useNavigate } from "react-router-dom"
 import kairos from '../kairos1.png'
 import { Link } from 'react-router-dom';
+import { UserContext } from '../App'
 
 function NavBar({ setUser }) {
     const [loginModalOn, setLoginModalOn] = useState(false);
     const [signUpModalOn, setSignUpModalOn] = useState(false)
     // const [showLogout, setShowLogout] = useState(false)
     const navigate = useNavigate();
+    const user = useContext(UserContext)
   
   
     const clickedLogin = () => {
@@ -35,13 +37,13 @@ function NavBar({ setUser }) {
         <Link to="/home"><img src={kairos} alt='logo' className='mx-8 h-12 w-12 -mt-3 absolute'/></Link>
         <div className="flex justify-end ">
             <div className="px-8">
-                <button className="border-b-2" onClick={clickedLogin}>Login</button>
+                {user ? null : <button className="border-b-2" onClick={clickedLogin}>Login</button>}
             </div>
             <div className="px-8">
-                <button className="border-b-2" onClick={clickedSignUp} href="">SignUp</button>
+                {user ? null : <button className="border-b-2" onClick={clickedSignUp} href="">SignUp</button>}
             </div>
             <div className="px-8">
-                <button className="border-b-2" onClick={clickedLogout}>Logout</button>
+                {user ? <button className="border-b-2" onClick={clickedLogout}>Logout</button> : null}
             </div>
                 {loginModalOn && < LoginModal setLoginModalOn={setLoginModalOn} setUser={setUser}/>}
                 {signUpModalOn && < SignupModal setSignUpModalOn={setSignUpModalOn} setUser={setUser}/>}
