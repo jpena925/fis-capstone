@@ -16,8 +16,8 @@ function PropertyPage() {
     return (
         <div>{property ?
             <div>
-                <div className='mx-5 flex justify-center mt-20 mb-5 align-text-top'>
-                    <p className='text-2xl mr-4'>{property.address}</p>
+                <div className='mx-5 flex items-baseline justify-center mt-20 mb-5'>
+                    <p className='text-2xl mr-4 '>{property.address}</p>
                     <p className='text-xl ml-4 '>${property.price} /mo.</p>
                 </div>
                 <div className='flex bg-blue-500 h-96 w-1/2 relative mx-auto'>

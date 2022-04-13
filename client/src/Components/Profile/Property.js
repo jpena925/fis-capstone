@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../../App'
 import Carousel from './Carousel'
 
-function Property() {
+function Property({ handleDeleteProperty, property, setProperty }) {
     const user = useContext(UserContext)
-    const [property, setProperty] = useState({})
+    
     const [editProperty, setEditProperty] = useState(false)
     const [editForm, setEditForm] = useState({
         price: 0,
@@ -49,6 +49,7 @@ function Property() {
         })
     }
 
+
   return (
     <div className="grid grid-cols-4 mt-5 mb-20 h-80">
     <div className='item1 col-span-2 border-r-4 mx-20 pr-5'>
@@ -60,7 +61,7 @@ function Property() {
                 
                 <div>
                 <button className='border border-black mr-1 px-2' onClick={() => setEditProperty(true)}>edit</button>
-                <button className='border border-black ml-1 px-2'>delete</button>
+                <button className='border border-black ml-1 px-2' onClick={() => handleDeleteProperty()}>delete</button>
                 </div>
             </div>
             {editProperty ?

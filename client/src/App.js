@@ -22,7 +22,7 @@ function App() {
     }) 
   }, [])
 
-  console.log(user)
+  
 
 
   return (
@@ -30,7 +30,7 @@ function App() {
     <NavBar setUser={setUser} />
     <Routes>
       <Route exact path="/" element={<Landing />} />
-      <Route exact path="/home" element={<Homepage />} />
+      <Route exact path="/home" element={<Homepage setUser={setUser}/>} />
       <Route exact path='/profile' element={<ProfilePage />} />
       <Route exact path='/property/:id' element={<PropertyPage />} />
     </Routes>

@@ -3,7 +3,7 @@ import Card from '../Card'
 import { UserContext } from '../../App'
 import { useLocation } from 'react-router-dom'
 
-function CardContainer({feed, setFeed, filtered}) {
+function CardContainer({feed, setFeed, filtered, setUser}) {
     const user = useContext(UserContext)
     let { search } = useLocation();
       search = (search.replace(/\D/g,''))
@@ -11,9 +11,9 @@ function CardContainer({feed, setFeed, filtered}) {
 
 
     const feedMap = filtered ?  
-        filtered.map(property => <Card key={property.id} props={property}/>)
+        filtered.map(property => <Card key={property.id} props={property} setUser={setUser}/>)
         :
-        feed?.filter(property => property?.zip === parseInt(user?.zip || search)).map(property => <Card key={property.id} props={property}/>) 
+        feed?.filter(property => property?.zip === parseInt(user?.zip || search)).map(property => <Card key={property.id} props={property} setUser={setUser}/>) 
         
     
     return (
