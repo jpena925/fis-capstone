@@ -18,35 +18,46 @@ function AddListing({setUser}) {
         image_url: ''
     })
     const [errors, setErrors] = useState('')
-    const [showErrors, setShowErros] = useState(false)
+    const [showErrors, setShowErrors] = useState(false)
 
 
     function handleAddFormSubmit(e){
         e.preventDefault()
-        
+        console.log(user)
         fetch('/properties', {
             method: 'POST',
             headers: {'Content-Type' : 'application/json'},
             body: JSON.stringify(addFormData)
         })
-        .then(r => r.json())
-        .then(data => setUser({...user, property: data}))
-        setAddFormData(() => ({
-            address: '',
-            zip: 0,
-            sqft: 0,
-            br: 0,
-            ba: 1,
-            price: 0,
-            date_available: '',
-            pets: false,
-            features: '',
-            user_id: user?.id,
-            image_url: ''
-        }))
-        setShowAddForm(false)
+        .then(r => {
+            if(r.ok){
+                r.json().then(data => setUser({...user, property: data}))
+                setShowAddForm(() => false)
+                setAddFormData(() => ({
+                    address: '',
+                    zip: 0,
+                    sqft: 0,
+                    br: 0,
+                    ba: 1,
+                    price: 0,
+                    date_available: '',
+                    pets: false,
+                    features: '',
+                    user_id: user?.id,
+                    image_url: ''
+                }))
+                setErrors('')
+                setShowErrors(false)
+            } else {
+                r.json().then(data => setErrors(data.errors))
+                setShowErrors(true)
+            }
+        })
     }
 
+    console.log(errors)
+    const errorsMap = errors ? 
+        errors.map(error => <p key={error} className='text-red-500'>{error}</p>) : null
 
     return (
         <div className="grid grid-cols-5 mt-5 mb-20 h-80">
@@ -119,6 +130,7 @@ function AddListing({setUser}) {
                             <input className='border-2' type="text" onChange={(e) => setAddFormData({...addFormData, image_url: e.target.value})}/>
                         </div>
                         <button type='submit' className='border border-black ml-1 px-2 mt-3' >submit</button>
+                        {showErrors ? errorsMap : null}
                     </form> 
                     : null}
             </div>

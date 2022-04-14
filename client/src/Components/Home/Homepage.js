@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import NavBar from '../NavBar'
-import Footer from '../Footer'
 import UserBar from './UserBar'
 import HomeSearch from './HomeSearch'
 import CardContainer from './CardContainer'

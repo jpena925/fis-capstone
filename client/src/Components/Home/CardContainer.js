@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import Card from '../Card'
 import { UserContext } from '../../App'
 import { useLocation } from 'react-router-dom'

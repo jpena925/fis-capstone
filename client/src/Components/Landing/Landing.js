@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import NavBar from '../NavBar.js'
-import Footer from '../Footer.js'
 import Card from '../Card.js'
 import Search from '../Search.js'
 
