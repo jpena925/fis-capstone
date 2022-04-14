@@ -1,13 +1,17 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import UserInfo from './UserInfo'
 import FavoriteCont from './FavoriteCont'
 import Property from './Property'
 import { UserContext } from '../../App'
 import AddListing from './AddListing'
 
-function ProfilePage() {
+function ProfilePage({setUser}) {
     const user = useContext(UserContext)
     const [property, setProperty] = useState({})
+
+    useEffect(() => {
+        setProperty(user?.property)
+    }, [user])
 
     function handleDeleteProperty(){
         fetch(`/properties/${user?.property.id}`, {
@@ -16,10 +20,11 @@ function ProfilePage() {
         .then(() => setProperty(null))
     }
     
+    
   return (
     <div>
-        <UserInfo />
-        {user?.property ? <Property handleDeleteProperty={handleDeleteProperty} property={property} setProperty={setProperty}/> : <AddListing />}
+        <UserInfo setUser={setUser}/>
+        {property ? <Property handleDeleteProperty={handleDeleteProperty} property={property} setProperty={setProperty}/> : <AddListing setUser={setUser}/>}
         <FavoriteCont />
     </div>
   )

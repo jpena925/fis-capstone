@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { UserContext } from '../../App'
 
-function UserInfo() {
-    const userLoggedIn = useContext(UserContext)
+function UserInfo({ setUser }) {
+    const user = useContext(UserContext)
     const [showEditContact, setShowEditContact] = useState(false)
     const [editContact, setEditContact] = useState({
         phone: '',
@@ -10,11 +10,6 @@ function UserInfo() {
     })
     const [showErrors, setShowErrors] = useState(false)
     const [errors, setErrors] = useState(null)
-    const [user, setUser] = useState(userLoggedIn)
-    
-    useEffect(() => {
-        setUser(userLoggedIn)
-    }, [userLoggedIn])
 
 
     function handleEditContactSubmit(e){

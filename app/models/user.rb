@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     has_one :property
     has_many :favorites
+    has_many :images, through: :property
     has_secure_password
 
     validates :username, presence: true, uniqueness: true

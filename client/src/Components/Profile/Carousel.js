@@ -19,7 +19,6 @@ function Carousel({ images }) {
         setCurrIndex(count)
     }
     
-    console.log(images)
     return (
         <div>
             <div className="aspect-w-16 aspect-h-9">

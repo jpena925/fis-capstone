@@ -34,7 +34,6 @@ function Card({ props, setUser }) {
         }
     }
 
-    console.log('after like', user)
 
     return (
             <div className="rounded overflow-hidden shadow-lg">
