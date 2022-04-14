@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { UserContext } from '../../App'
 
-function AddListing() {
+function AddListing({setUser}) {
     const user = useContext(UserContext)
     const [showAddForm, setShowAddForm] = useState(false)
     const [addFormData, setAddFormData] = useState({
@@ -14,33 +14,23 @@ function AddListing() {
         date_available: '',
         pets: false,
         features: '',
-        user_id: user?.id
-    })
-    const [addPhoto, setAddPhoto] = useState({
-        image_url: '',
         user_id: user?.id,
-        property_id: 0
+        image_url: ''
     })
+    const [errors, setErrors] = useState('')
+    const [showErrors, setShowErros] = useState(false)
+
 
     function handleAddFormSubmit(e){
         e.preventDefault()
-        console.log(addFormData)
+        
         fetch('/properties', {
             method: 'POST',
             headers: {'Content-Type' : 'application/json'},
             body: JSON.stringify(addFormData)
         })
         .then(r => r.json())
-        .then(data => console.log(data))
-
-        // fetch('/images', {
-        //     method: 'POST',
-        //     headers: {'Content-Type': 'application/json'},
-        //     body: JSON.stringify(addPhoto)
-        // })
-        // .then(r => r.json())
-        // .then(data => console.log(data))
-        // setAddPhoto(() => '')
+        .then(data => setUser({...user, property: data}))
         setAddFormData(() => ({
             address: '',
             zip: 0,
@@ -51,8 +41,10 @@ function AddListing() {
             date_available: '',
             pets: false,
             features: '',
-            user_id: user?.id
+            user_id: user?.id,
+            image_url: ''
         }))
+        setShowAddForm(false)
     }
 
 
@@ -124,7 +116,7 @@ function AddListing() {
                         </div>
                         <div className='flex'>
                             <label htmlFor="">Photo (hosted URL):</label>
-                            <input className='border-2' type="text" onChange={(e) => setAddPhoto({...addPhoto, image_url: e.target.value})}/>
+                            <input className='border-2' type="text" onChange={(e) => setAddFormData({...addFormData, image_url: e.target.value})}/>
                         </div>
                         <button type='submit' className='border border-black ml-1 px-2 mt-3' >submit</button>
                     </form> 

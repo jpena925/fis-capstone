@@ -4,19 +4,10 @@ import { UserContext } from '../../App'
 
 function FavoriteCont() {
     const user = useContext(UserContext)
-    const [wholeUser, setWholeUser] = useState(null)
-
-    useEffect(() => {
-        if(user){
-        fetch(`/users/${user.id}`)
-        .then(r => r.json())
-        .then(wholeUser => setWholeUser(wholeUser))
-        }
-    }, [user])
 
     
-    const cardMap = wholeUser ?
-        wholeUser.favorites.map(fav => <Card key={fav.id} props={fav.property}/>) : <p>No Favorites Yet</p>
+    const cardMap = user ?
+        user.favorites.map(fav => <Card key={fav.id} props={fav.property}/>) : <p>No Favorites Yet</p>
 
   return (
     <div className='py-10'>

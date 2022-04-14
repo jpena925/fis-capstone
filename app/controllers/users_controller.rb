@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
     def show
         user = User.find(params[:id])
-        render json: user, status: :ok, include: ['favorites.property']
+        render json: user, status: :ok, include: ['favorites.property', 'property.images']
     end
 
 

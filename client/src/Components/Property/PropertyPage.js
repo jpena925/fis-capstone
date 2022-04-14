@@ -36,9 +36,9 @@ function PropertyPage() {
                 </div>
                 <div className='mt-10'>
                     <p className='flex justify-center'>Contact the Current Tenant(s):</p>
-                    <p className='flex justify-center'>username: {property.user.username}</p>
-                    <p className='flex justify-center'>email: {property.user.email}</p>
-                    <p className='flex justify-center'>{property.user.phone ? `phone: ${property.user.phone}` : null}</p>
+                    <p className='flex justify-center'>username: {property.user?.username}</p>
+                    <p className='flex justify-center'>email: {property.user?.email}</p>
+                    <p className='flex justify-center'>{property.user?.phone ? `phone: ${property.user.phone}` : null}</p>
                 </div>
             </div>
 

@@ -14,6 +14,7 @@ class PropertiesController < ApplicationController
 
     def create 
         property = Property.create(property_params)
+        Image.create(image_url: params[:image_url], property_id: property.id)
         if property.valid? 
             render json: property, status: :created 
         else 

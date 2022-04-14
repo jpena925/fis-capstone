@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { UserContext } from '../../App'
 import Carousel from './Carousel'
 
@@ -14,13 +14,6 @@ function Property({ handleDeleteProperty, property, setProperty }) {
     const [showErrors, setShowErrors] = useState(false)
     const [errors, setErrors] = useState('')
 
-    useEffect(() => {
-        if(user && user.property){
-        fetch(`properties/${user.property?.id}`)
-        .then(r => r.json())
-        .then(data => setProperty(data))
-        }
-    }, [user])
 
     function handleSubmitEditProperty(e){
         e.preventDefault()
@@ -33,7 +26,7 @@ function Property({ handleDeleteProperty, property, setProperty }) {
         })
         .then(r => {
             if(r.ok){
-                r.json().then(data => console.log(data))
+                r.json().then(data => setProperty(data))
                 setEditProperty(() => false)
                 setEditForm(() => ({
                     price: 0,

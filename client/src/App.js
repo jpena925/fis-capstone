@@ -31,7 +31,7 @@ function App() {
     <Routes>
       <Route exact path="/" element={<Landing />} />
       <Route exact path="/home" element={<Homepage setUser={setUser}/>} />
-      <Route exact path='/profile' element={<ProfilePage />} />
+      <Route exact path='/profile' element={<ProfilePage setUser={setUser} />} />
       <Route exact path='/property/:id' element={<PropertyPage />} />
     </Routes>
     <Footer />
