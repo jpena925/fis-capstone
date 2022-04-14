@@ -1,9 +1,9 @@
-import React, { useContext, useState } from 'react'
-import { UserContext } from '../../App'
+import React, { useState } from 'react'
+// import { UserContext } from '../../App'
 import Carousel from './Carousel'
 
 function Property({ handleDeleteProperty, property, setProperty }) {
-    const user = useContext(UserContext)
+    // const user = useContext(UserContext)
     
     const [editProperty, setEditProperty] = useState(false)
     const [editForm, setEditForm] = useState({
