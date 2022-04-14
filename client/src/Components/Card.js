@@ -43,7 +43,7 @@ function Card({ props, setUser }) {
                     {props?.images.length ? <img src={props?.images[0]?.image_url} alt='card pic' /> : <img src='https://homes.madeeasy.app/img/no-propertyfound.png' alt='card pic' />}
                 </div>
                 <div className="px-6 pt-4 pb-2">
-                    <span className="inline-block text-blue-300 font-bold text-sm px-3 py-1 mr-2 mb-2">${props?.price}</span>
+                    <span className="inline-block text-blue-300 font-bold text-md px-3 mr-2 mb-2">${props?.price}</span>
                 </div>
                 <div className="px-6 pt-4 pb-2">
                     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{props?.br} Beds</span>

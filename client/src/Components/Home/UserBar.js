@@ -14,31 +14,31 @@ function UserBar() {
         user?.favorites.map(fav => 
             <Link to={`/property/${fav.property?.id}`} 
                 key={fav.id} 
-                className='text-xs block mr-5 mt-5 underline text-blue-500'>
+                className='text-xs block mr-5 mt-5 underline text-blue-400 hover:text-blue-700'>
             {fav.property?.address}
             </Link>) : null
 
     
     return (
-            <div>
+            <div className='mr-1'>
                 {user ? 
                 <>
                 <div>
                     <p className='text-xl font-semibold mt-10 mb-3'>Welcome,</p>
-                    <Link className='mx-5 text-2xl mt-3 mb-3 underline text-blue-200' to={'/profile'}>{user?.username}</Link>
+                    <Link className='mx-5 text-3xl mt-3 mb-3 underline text-blue-400 hover:text-blue-700' to={'/profile'}>{user?.username}</Link>
                 </div>
                 <div>
-                    <p className='mt-8'>Current Listing:</p>
+                    <p className='mt-12 text-lg mb-2'>Current Listing:</p>
                     {user?.property ?
-                    <Link className='text-sm mb-3 underline text-blue-500' to={`/property/${user?.property?.id}`}>{user?.property.address}</Link> : <p>No Listing</p> }
+                    <Link className='text-sm mb-3 underline text-blue-400 hover:text-blue-700' to={`/property/${user?.property?.id}`}>{user?.property.address}</Link> : <p>No Listing</p> }
                 </div>
                 <div>
-                    <p className='mt-10'>Contact Info:</p>
-                    <p>{user?.email}</p>
-                    <p>{user?.phone}</p>
+                    <p className='mt-8 text-lg mb-3'>Contact Info:</p>
+                    <p className='text-sm'>email: {user?.email}</p>
+                    <p className='text-sm'>phone: {user?.phone}</p>
                 </div>
                 <div>
-                    <p className='mt-5'>Favorites:</p>
+                    <p className='mt-5 text-lg'>Favorites:</p>
                     {favoriteMap}
                 </div>
                 </>
