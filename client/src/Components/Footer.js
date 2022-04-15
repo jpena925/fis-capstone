@@ -3,7 +3,7 @@ import kairos from '../kairos1.png'
 
 function Footer() {
   return (
-    <footer className="pt-40 px-4 divide-y">
+    <footer className="pt-24 px-4 divide-y">
         <div className="container flex flex-col justify-between mx-auto space-y-8 lg:flex-row lg:space-y-0 mb-5">
             <div className="lg:w-1/3">
                 <a href="" className="flex justify-center">
@@ -32,10 +32,10 @@ function Footer() {
                     <h3 className="text-slate-400 uppercase tracking-wide">Contact Us</h3>
                     <ul className="space-y-1">
                         <div>
-                            <a href="">support@rentr.com</a>
+                            <a href="">support@kairos.com</a>
                         </div>
                         <div>
-                            <li>555-555-5555</li>
+                            <li>504-123-5555</li>
                         </div>
                     </ul>
                 </div>

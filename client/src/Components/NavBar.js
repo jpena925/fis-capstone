@@ -33,17 +33,17 @@ function NavBar({ setUser }) {
 
 
   return (
-    <div className='px-2 py-7 shadow-md relative'>
-        <Link to="/home"><img src={kairos} alt='logo' className='mx-8 h-12 w-12 -mt-3 absolute'/></Link>
+    <div className='mt-2 py-4 shadow-md relative'>
+        <Link to="/home"><img src={kairos} alt='logo' className='mx-8 h-10 w-10 -mt-3 absolute'/><p className='absolute ml-20 mt-1 text-lg'>kairos</p></Link>
         <div className="flex justify-end ">
-            <div className="px-8">
-                {user ? null : <button className="border-b-2" onClick={clickedLogin}>Login</button>}
+            <div className="px-5">
+                {user ? null : <button className="border-b-2 hover:border-blue-500 hover:text-blue-500 hover:font-bold uppercase" onClick={clickedLogin}>Login</button>}
             </div>
-            <div className="px-8">
-                {user ? null : <button className="border-b-2" onClick={clickedSignUp} href="">SignUp</button>}
+            <div className="px-5">
+                {user ? null : <button className="border-b-2 hover:border-blue-500 hover:text-blue-500 hover:font-bold uppercase" onClick={clickedSignUp} href="">SignUp</button>}
             </div>
-            <div className="px-8">
-                {user ? <button className="border-b-2" onClick={clickedLogout}>Logout</button> : null}
+            <div className="px-5">
+                {user ? <button className="border-b-2 hover:border-blue-500 hover:text-blue-500 hover:font-bold uppercase" onClick={clickedLogout}>Logout</button> : null}
             </div>
                 {loginModalOn && < LoginModal setLoginModalOn={setLoginModalOn} setUser={setUser}/>}
                 {signUpModalOn && < SignupModal setSignUpModalOn={setSignUpModalOn} setUser={setUser}/>}

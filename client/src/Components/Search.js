@@ -18,7 +18,7 @@ function Search() {
                 placeholder="Enter a zip code to get started"
                 onChange={(e) => setSearch(e.target.value)}
                 value={search} />
-            <button type="submit" className="text-white shadow-lg uppercase border-2 px-8 py-4 font-bold tracking-wider">Explore</button>
+            <button type="submit" className="text-white shadow-lg uppercase border-2 px-8 py-4 font-extrabold tracking-wider">Explore</button>
         </form>
     )
 }

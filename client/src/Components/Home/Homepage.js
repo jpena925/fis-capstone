@@ -38,7 +38,7 @@ function Homepage({setUser}) {
 
   return (
     <div className="grid grid-cols-4">
-        <div className='item1 col-span-1 border-r-4 mx-5'>
+        <div className='item1 col-span-1 border-r-2 border-grey'>
             <UserBar />
         </div>
         <div className='item2 col-span-3'>

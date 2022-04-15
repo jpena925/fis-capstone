@@ -42,51 +42,51 @@ function SignupModal({ setSignUpModalOn, setUser }) {
   return (
     <div className="backdrop-blur-sm fixed inset-0 z-50">
         <div className="flex h-screen justify-center items-center ">
-            <div className="flex-col justify-center  bg-white py-12 px-20 border-4 border-black-400 rounded-xl ">
-                <div className="flex  text-lg  text-zinc-600   mb-10" >Signup For Website</div>
+            <div className="flex-col justify-center  bg-white py-12 px-12 border-4 border-black-400 rounded-xl ">
+                <div className="flex font-semibold text-black mb-6 uppercase" >Signup For kairos</div>
                 <div className=''>
                     <form>
                     <label className="block uppercase text-xs text-gray-700 font-bold mb-2 tracking-wider">Username</label>
                     <input 
                         type="text" 
-                        className="block w-full  border-black text-gray-700 block py-2 rounded mb-3" 
+                        className="block w-full  border-black text-gray-700 block py-1 px-2 rounded mb-3" 
                         placeholder="Enter Username"
                         onChange={(e) => setSignUpData({...signUpData, username: e.target.value})}
                         value={signUpData.username}/>
                     <label className="block uppercase text-xs text-gray-700 font-bold mb-2 tracking-wider">password</label>
                     <input 
                         type="password" 
-                        className="block w-full  border-black text-gray-700 block py-2 rounded mb-3" 
+                        className="block w-full  border-black text-gray-700 block py-1 px-2 rounded mb-3" 
                         placeholder="******"
                         onChange={(e) => setSignUpData({...signUpData, password: e.target.value})}
                         value={signUpData.password}/>
                     <label className="block uppercase text-xs text-gray-700 font-bold mb-2 tracking-wider">confirm password</label>
                     <input 
                         type="password" 
-                        className="block w-full  border-black text-gray-700 block py-2 rounded mb-3" 
+                        className="block w-full  border-black text-gray-700 block py-1 px-2 rounded mb-3" 
                         placeholder="******"
                         onChange={(e) => setSignUpData({...signUpData, password_confirmation: e.target.value})}
                         value={signUpData.password_confirmation}/>
                     <label className="block uppercase text-xs text-gray-700 font-bold mb-2 tracking-wider">Email</label>
                     <input 
                         type="text" 
-                        className="block w-full  border-black text-gray-700 block py-2 rounded mb-3" 
+                        className="block w-full  border-black text-gray-700 block py-1 px-2 rounded mb-3" 
                         placeholder="email@email.com"
                         onChange={(e) => setSignUpData({...signUpData, email: e.target.value})}
                         value={signUpData.email}/>
                     <label className="block uppercase text-xs text-gray-700 font-bold mb-2 tracking-wider">Current Zip Code</label>
                     <input 
                         type="text" 
-                        className="block w-full  border-black text-gray-700 block py-2 rounded mb-3" 
+                        className="block w-full  border-black text-gray-700 block py-1 px-2 rounded mb-3" 
                         placeholder='123456'
                         onChange={(e) => setSignUpData({...signUpData, zip: e.target.value})}
                         value={signUpData.zip}/>
                     <ul>
                     {showErrors ? errorsArray : null}
                     </ul>
-                    <button type='submit' onClick={handleSignUp} className=" block rounded px-4 py-2 text-white bg-green-400 ">Sign Up</button>
+                    <button type='submit' onClick={handleSignUp} className=" block rounded px-3 py-2 text-white text-sm bg-blue-500 ">Sign Up</button>
                     </form>
-                    <button onClick={() => setSignUpModalOn(false)} className="pt-4">Already have an account?</button>
+                    <button onClick={() => setSignUpModalOn(false)} className="pt-4 text-sm">Already have an account?</button>
                 </div>
             </div>
         </div>
