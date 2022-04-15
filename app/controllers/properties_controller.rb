@@ -41,6 +41,7 @@ class PropertiesController < ApplicationController
     end
 
     def filtered
+        response = HTTParty.get('')
         # byebug
         #params[:search], params[:br], params[:ba], params[:price], params[:pets]
         properties = Property.where("zip == ?", params[:search].to_i)
