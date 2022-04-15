@@ -4,12 +4,13 @@ import HomeSearch from './HomeSearch'
 import CardContainer from './CardContainer'
 
 function Homepage({setUser}) {
-    const [homeSearch, setHomeSearch] = useState(null)
+    const [homeSearch, setHomeSearch] = useState('')
     const [filters, setFilters] = useState({
         br: -1,
         ba: -1,
         price: -1,
-        pets: false
+        pets: false,
+        radius: 1
     })
     const [feed, setFeed] = useState(null)
     const [filtered, setFiltered] = useState(null)
@@ -19,19 +20,20 @@ function Homepage({setUser}) {
         .then(r => r.json())
         .then(data => setFeed(data))
     }, [])
+
   
     function handleHomeSearch(e){
         e.preventDefault()
-        console.log(filters.pets)
-        fetch(`/filtered?search=${homeSearch}&br=${filters.br}&ba=${filters.ba}&price=${filters.price}&pets=${filters.pets}`)
+        fetch(`/filtered?search=${homeSearch}&radius=${filters.radius}&br=${filters.br}&ba=${filters.ba}&price=${filters.price}&pets=${filters.pets}`)
         .then(r => r.json())
         .then(data => setFiltered(data))
-        setHomeSearch(() => null)
+        setHomeSearch(() => '')
         setFilters(() => ({
             br: -1,
             ba: -1,
             price: -1,
-            pets: false
+            pets: false,
+            radius: 1
         }))
     }
 
