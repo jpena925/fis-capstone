@@ -14,31 +14,31 @@ function UserBar() {
         user?.favorites.map(fav => 
             <Link to={`/property/${fav.property?.id}`} 
                 key={fav.id} 
-                className='text-xs block mr-5 mt-5 underline text-blue-400 hover:text-blue-700'>
+                className='text-xs block mr-5 mt-5  text-gray-500 hover:text-blue-600'>
             {fav.property?.address}
             </Link>) : null
-
     
     return (
-            <div className='mr-1'>
+            <div className=''>
                 {user ? 
                 <>
-                <div>
-                    <p className='text-xl font-semibold mt-10 mb-3'>Welcome,</p>
-                    <Link className='mx-5 text-3xl mt-3 mb-3 underline text-blue-400 hover:text-blue-700' to={'/profile'}>{user?.username}</Link>
+                <div className='ml-5'>
+                    <p className=' text-xl font-semibold mt-10 mb-3'>Welcome,</p>
+                    <Link className=' text-3xl mt-3 mb-3 underline text-gray-500 hover:text-blue-600' to={'/profile'}>{user?.username}</Link>
                 </div>
-                <div>
-                    <p className='mt-12 text-lg mb-2'>Current Listing:</p>
+                <div className='border-t mt-8'></div>
+                <div className='mx-5 mt-10'>  
+                    <p className='text-md mb-2 uppercase tracking-wider font-medium'>Current Listing:</p>
                     {user?.property ?
-                    <Link className='text-sm mb-3 underline text-blue-400 hover:text-blue-700' to={`/property/${user?.property?.id}`}>{user?.property.address}</Link> : <p>No Listing</p> }
+                    <Link className='text-sm mb-3 underline text-gray-500 hover:text-blue-600' to={`/property/${user?.property?.id}`}>{user?.property.address}</Link> : <p>No Listing</p> }
                 </div>
-                <div>
-                    <p className='mt-8 text-lg mb-3'>Contact Info:</p>
+                <div className='ml-5'>
+                    <p className='mt-10 text-md mb-3 uppercase tracking-wider font-medium'>Contact Info:</p>
                     <p className='text-sm'>email: {user?.email}</p>
                     <p className='text-sm'>phone: {user?.phone}</p>
                 </div>
-                <div>
-                    <p className='mt-5 text-lg'>Favorites:</p>
+                <div className='ml-5'>
+                    <p className='mt-10 text-md uppercase tracking-wider font-medium'>Favorites:</p>
                     {favoriteMap}
                 </div>
                 </>

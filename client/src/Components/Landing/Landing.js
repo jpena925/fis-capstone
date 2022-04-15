@@ -31,7 +31,7 @@ function Landing() {
         <h2 className="text-3xl text-black font-serif italic font-medium">kairos:</h2>
         <h2 className="text-lg text-gray-500 italic ml-3">'the right, critical, or opportune moment'</h2>
     </div>
-      <p className='px-8 mt-8 text-sm'>Welcome to kairos. Here at kairos we know how difficult it can be to find somewhere to rent. There are so many listings to sift through that
+      <p className='px-20 mt-8 text-sm'>Welcome to kairos. Here at kairos we know how difficult it can be to find somewhere to rent. There are so many listings to sift through that
         even if you find the right one, you're lucky to get a tour before it's signed for. That's where we come in. kairos is the place to list your current
         home and browse others' homes, with no strings attached. Whether you're sure you're moving or just interested in the idea of it, you can list your property, post pictures
         and communicate with others' about their homes. kairos is built with the renter in mind. Find your kairos, find your new home.
