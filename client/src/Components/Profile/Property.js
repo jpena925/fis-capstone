@@ -45,16 +45,15 @@ function Property({ handleDeleteProperty, property, setProperty }) {
 
   return (
     <div className="grid grid-cols-4 mt-5 mb-20 h-80">
-    <div className='item1 col-span-2 border-r-4 mx-20 pr-5'>
+    <div className='item1 col-span-2 border-r-4 ml-16 mr-8 p-5 bg-gray-100'>
         <div>
-            <div className='flex justify-between mb-8'>
+            <div className='flex justify-between mb-5'>
                 <div>
-                <p className='text-lg font-semibold'>Your Listing:</p>
+                <p className='text-lg uppercase tracking-wider'>Your Listing:</p>
                 </div>
-                
                 <div>
-                <button className='border border-black mr-1 px-2' onClick={() => setEditProperty(true)}>edit</button>
-                <button className='border border-black ml-1 px-2' onClick={() => handleDeleteProperty()}>delete</button>
+                <button className='border border-black mr-1 px-2 bg-white' onClick={() => setEditProperty(true)}>edit</button>
+                <button className='border border-black ml-1 px-2 bg-white' onClick={() => handleDeleteProperty()}>delete</button>
                 </div>
             </div>
             {editProperty ?
@@ -81,15 +80,15 @@ function Property({ handleDeleteProperty, property, setProperty }) {
                 </form>
                 </div>
             :
-                <div>
-                    <p>{property?.address}</p>
-                    <p>{property?.sqft} sq.ft.</p>
-                    <p>${property?.price} </p>
+                <div >
+                    <p className='text-lg font-bold uppercase tracking-wide'>{property?.address}</p>
+                    <p className='uppercase'>{property?.sqft} sq.ft.</p>
+                    <p className='uppercase'>${property?.price} </p>
                     {/* <p>Landlord Verified: {property.landlord ? '✅' : '❎'}</p> */}
-                    <p>{`${property?.br} Bedroom / ${property?.ba} Bath`}</p>
-                    <p>Pets: {property?.pets ? 'Yes' : 'No'}</p>
-                    <p>Date Available: {property?.date_available}</p>
-                    <p>Features: {property?.features}</p>
+                    <p className='uppercase'>{`${property?.br} Bedroom / ${property?.ba} Bath`}</p>
+                    <p className='mt-4'>Pets Allowed: {property?.pets ? 'Yes' : 'No'}</p>
+                    <p className=''>Date Available: {property?.date_available}</p>
+                    <p className=''>Features: {property?.features}</p>
                 </div>
             }
         </div>

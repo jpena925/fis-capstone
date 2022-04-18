@@ -43,15 +43,13 @@ function UserInfo({ setUser }) {
 
     return (
         <div className="mx-20 mt-10">
+                <h1 className='text-3xl mb-5 mr-10 border-b-2 border-black border-double'>{user?.username}</h1>
             <div>
-                <h1 className='text-3xl mb-5'>{user?.username}</h1>
-            </div>
-            <div>
-                <div className='flex'>
-                    <p>Contact Info:</p>
-                    <button className='ml-64 px-2 border border-black' onClick={() => setShowEditContact(true)}>edit</button>
+                <div className='flex justify-between'>
+                    <p className='text-lg uppercase tracking-wider'>Contact Info:</p>
+                    <button className='flex mr-10 px-2 border border-black' onClick={() => setShowEditContact(true)}>edit</button>
                 </div>
-                <p>email: {user?.email}</p>
+                <p className='text-sm'>email: {user?.email}</p>
                 {showEditContact ?
                     <div> 
                     <form onSubmit={handleEditContactSubmit}>
@@ -77,8 +75,8 @@ function UserInfo({ setUser }) {
                     </div>
                 :
                     <>
-                    <p>phone: {user?.phone}</p>
-                    <p>zip code: {user?.zip}</p>
+                    <p className='text-sm'>phone: {user?.phone}</p>
+                    <p className='text-sm'>zip code: {user?.zip}</p>
                     </>
                 }
             </div>

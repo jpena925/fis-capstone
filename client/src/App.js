@@ -32,7 +32,7 @@ function App() {
       <Route exact path="/" element={<Landing />} />
       <Route exact path="/home" element={<Homepage setUser={setUser}/>} />
       <Route exact path='/profile' element={<ProfilePage setUser={setUser} />} />
-      <Route exact path='/property/:id' element={<PropertyPage />} />
+      <Route exact path='/property/:id' element={<PropertyPage user={user} setUser={setUser}/>} />
     </Routes>
     <Footer />
     </UserContext.Provider>

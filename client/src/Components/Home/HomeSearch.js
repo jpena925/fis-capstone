@@ -9,7 +9,7 @@ function HomeSearch({ homeSearch, setHomeSearch, filters, setFilters, onHomeSear
                 <div className='flex mx-10 mb-2'>
                     <input type='number' className='border border-black pl-1' value={homeSearch} placeholder='Zip Code Search' onChange={(e) => setHomeSearch(() => parseInt(e.target.value))}/>
                     <label htmlFor='radius' className=' ml-2 mr-2 uppercase'>Mile Radius</label>
-                    <input name='radius' type='number' min='1' className='border border-black w-8 pl-1' placeholder='1' onChange={(e) => setFilters({...filters, radius: parseInt(e.target.value)})}></input>
+                    <input name='radius' value={filters.radius} type='number' min='1' className='border border-black w-8 pl-1' placeholder='1' onChange={(e) => setFilters({...filters, radius: parseInt(e.target.value)})}></input>
                     <button type='submit' className='border border-black  ml-3 bg-blue-50 font-medium px-2 text-sm'>Search</button>
                 </div>
                 <div className='mx-10 flex space-x-3 items-center'>
