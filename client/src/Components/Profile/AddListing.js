@@ -15,10 +15,19 @@ function AddListing({setUser}) {
         pets: false,
         features: '',
         user_id: user?.id,
-        image_url: ''
+        image_url: []
     })
     const [errors, setErrors] = useState('')
     const [showErrors, setShowErrors] = useState(false)
+    const [imageForm, setImageForm] = useState('')
+    
+
+    function handleAddPhoto(){
+        setAddFormData(() => ({...addFormData, image_url: [...addFormData.image_url, imageForm]}))
+        setImageForm('')
+    }
+
+    console.log(addFormData)
 
 
     function handleAddFormSubmit(e){
@@ -44,7 +53,7 @@ function AddListing({setUser}) {
                     pets: false,
                     features: '',
                     user_id: user?.id,
-                    image_url: ''
+                    image_url: []
                 }))
                 setErrors('')
                 setShowErrors(false)
@@ -55,9 +64,11 @@ function AddListing({setUser}) {
         })
     }
 
-    console.log(errors)
     const errorsMap = errors ? 
         errors.map(error => <p key={error} className='text-red-500'>{error}</p>) : null
+
+    const imageLinks = addFormData.image_url.length > 0 ?
+        addFormData.image_url.map(image => <p key={image} className='text-xs text-blue-400'>{image}</p>) : null
 
     return (
         <div className="grid grid-cols-5 mt-5 mb-20">
@@ -125,9 +136,11 @@ function AddListing({setUser}) {
                             <label htmlFor="" className=' mr-6'>Features:</label>
                             <textarea className='block border w-64 mb-1 resize-none' onChange={(e) => setAddFormData({...addFormData, features: e.target.value})}></textarea>
                         </div>
+                        {imageLinks}
                         <div className='flex'>
                             <label htmlFor="">Photo (hosted URL):</label>
-                            <input className='ml-1 border' type="text" onChange={(e) => setAddFormData({...addFormData, image_url: e.target.value})}/>
+                            <input className='ml-1 border' type="text" value={imageForm} onChange={(e) => setImageForm(e.target.value)}/>
+                            <button type="button" className='ml-1 border px-2 bg-black text-white' onClick={handleAddPhoto}>+</button>
                         </div>
                         <button type='submit' className='border border-black ml-1 px-2 mt-3' >submit</button>
                         {showErrors ? errorsMap : null}
