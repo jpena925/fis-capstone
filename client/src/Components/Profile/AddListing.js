@@ -60,35 +60,35 @@ function AddListing({setUser}) {
         errors.map(error => <p key={error} className='text-red-500'>{error}</p>) : null
 
     return (
-        <div className="grid grid-cols-5 mt-5 mb-20 h-80">
+        <div className="grid grid-cols-5 mt-5 mb-20">
             <div className='item1 col-span-3 border-r-4 mx-20 pr-5'>
                 <div className='flex justify-between mb-8'>
-                    <p className='text-lg font-semibold'>Your Listing:</p>
+                    <p className='text-lg uppercase tracking-wider'>Your Listing:</p>
                     <button className='border border-black ml-1 px-2' onClick={() => setShowAddForm(true)}>Add a Listing!</button>
                 </div>
                 {showAddForm ? 
                     <form className='' onSubmit={handleAddFormSubmit}>
-                        <div className='flex'>
+                        <div className='flex mb-2'>
                             <label htmlFor="">Address:</label>
                             <input 
-                                className='border-2 w-3/4' 
+                                className='border w-3/4 ml-1' 
                                 type="text" 
                                 onChange={(e) => setAddFormData({...addFormData, address: e.target.value})}
                                 // value={addFormData.address}
                                 placeholder='123 1st St. Lafayette, LA 71234'/>
                         </div>
-                        <div className='flex'>
+                        <div className='flex mb-2'>
                             <label htmlFor="">Zip Code:</label>
                             <input 
-                                className='border-2' 
+                                className='border ml-1' 
                                 type="text" 
                                 onChange={(e) => setAddFormData({...addFormData, zip: parseInt(e.target.value)})}
                                 />
                         </div>
-                        <div className='flex'>
+                        <div className='flex mb-1'>
                             <label htmlFor="">Sq.Ft.:</label>
                             <input 
-                                className='border-2 w-1/6' 
+                                className='border w-1/6 ml-1' 
                                 type="text" 
                                 onChange={(e) => setAddFormData({...addFormData, sqft: parseInt(e.target.value)})}/>
                         </div>
@@ -102,32 +102,32 @@ function AddListing({setUser}) {
                             </select>
                         </div>
                         <div className='flex'>
-                            <label htmlFor="" className='mr-6'>Bathrooms:</label>
+                            <label htmlFor="" className='mr-6 mb-2'>Bathrooms:</label>
                             <select name="BA" onChange={(e) => setAddFormData({...addFormData, ba: parseInt(e.target.value)})}>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                             </select>
                         </div>
-                        <div className='flex'>
+                        <div className='flex mb-2'>
                             <label htmlFor="">Price: $</label>
-                            <input className='border-2 w-1/6' type="text" onChange={(e) => setAddFormData({...addFormData, price: parseInt(e.target.value)})}/>
+                            <input className='border w-1/6' type="text" onChange={(e) => setAddFormData({...addFormData, price: parseInt(e.target.value)})}/>
                         </div>
-                        <div className='flex'>
+                        <div className='flex mb-1'>
                             <label htmlFor="">Date Available:</label>
-                            <input className='border-2' type="date" onChange={(e) => setAddFormData({...addFormData, date_available: e.target.value})}/>
+                            <input className='border ml-1' type="date" onChange={(e) => setAddFormData({...addFormData, date_available: e.target.value})}/>
                         </div>
-                        <div className='flex'>
+                        <div className='mb-1'>
                             <label htmlFor="" className='mr-6'>Pets Allowed:</label>
                             <input type="checkbox" className='-ml-2' onChange={(e) => setAddFormData({...addFormData, pets: e.target.checked})}/>
                         </div>
                         <div className=''>
-                            <label htmlFor="" className='mr-6'>Features:</label>
-                            <textarea className='block border w-64 resize-none' onChange={(e) => setAddFormData({...addFormData, features: e.target.value})}></textarea>
+                            <label htmlFor="" className=' mr-6'>Features:</label>
+                            <textarea className='block border w-64 mb-1 resize-none' onChange={(e) => setAddFormData({...addFormData, features: e.target.value})}></textarea>
                         </div>
                         <div className='flex'>
                             <label htmlFor="">Photo (hosted URL):</label>
-                            <input className='border-2' type="text" onChange={(e) => setAddFormData({...addFormData, image_url: e.target.value})}/>
+                            <input className='ml-1 border' type="text" onChange={(e) => setAddFormData({...addFormData, image_url: e.target.value})}/>
                         </div>
                         <button type='submit' className='border border-black ml-1 px-2 mt-3' >submit</button>
                         {showErrors ? errorsMap : null}
