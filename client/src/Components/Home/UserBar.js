@@ -44,11 +44,11 @@ function UserBar() {
                 </>
             :                 
             <>
-            <div>
+            <div className='mx-5 mb-3'>
                 <p className='text-xl font-semibold mt-10 mb-3'>Welcome!</p>
-                <Link className='mx-5 text-2xl mt-3 mb-3 underline text-blue-200' to={'/'}>Please Log In</Link>
+                <Link className=' text-2xl mt-3 underline text-blue-200' to={'/'}>Please Log In</Link>
             </div>
-            <div className='mr-5'>
+            <div className='mx-5'>
                 <p className='mt-8'></p>
                 <p>Join kairos today to list your current rental and keep track of your favorite listings!</p>
             </div>
