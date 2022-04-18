@@ -24,7 +24,7 @@ function UserBar() {
                 <>
                 <div className='ml-5'>
                     <p className=' text-xl font-semibold mt-10 mb-3'>Welcome,</p>
-                    <Link className=' text-3xl mt-3 mb-3 underline text-gray-500 hover:text-blue-600' to={'/profile'}>{user?.username}</Link>
+                    <Link className=' text-3xl mt-3 mb-3 underline text-blue-400 hover:text-blue-600' to={'/profile'}>{user?.username}</Link>
                 </div>
                 <div className='border-t mt-8'></div>
                 <div className='mx-5 mt-10'>  
