@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     def update
         user = User.find(params[:id])
         user.update!(user_params)
-        render json: user, status: :accepted
+        render json: user, status: :accepted, include: ['favorites.property', 'property.images']
     end
 
     def create 

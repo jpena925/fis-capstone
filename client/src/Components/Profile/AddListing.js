@@ -27,8 +27,6 @@ function AddListing({setUser}) {
         setImageForm('')
     }
 
-    console.log(addFormData)
-
 
     function handleAddFormSubmit(e){
         e.preventDefault()
