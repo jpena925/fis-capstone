@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-// import { UserContext } from '../../App'
+import React, { useState, useContext } from 'react'
+import { UserContext } from '../../App'
 import Carousel from './Carousel'
 
-function Property({ handleDeleteProperty, property, setProperty }) {
-    // const user = useContext(UserContext)
+function Property({ handleDeleteProperty, property, setProperty, setUser }) {
+    const user = useContext(UserContext)
     
     const [editProperty, setEditProperty] = useState(false)
     const [editForm, setEditForm] = useState({
@@ -26,7 +26,7 @@ function Property({ handleDeleteProperty, property, setProperty }) {
         })
         .then(r => {
             if(r.ok){
-                r.json().then(data => setProperty(data))
+                r.json().then(data => setUser({...user, property: data}))
                 setEditProperty(() => false)
                 setEditForm(() => ({
                     price: 0,

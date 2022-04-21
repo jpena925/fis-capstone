@@ -17,14 +17,14 @@ function ProfilePage({setUser}) {
         fetch(`/properties/${user?.property.id}`, {
             method: 'DELETE'
         })
-        .then(() => setProperty(null))
+        .then(() => setUser({...user, property: null}))
     }
     
     
   return (
     <div>
         <UserInfo setUser={setUser}/>
-        {property ? <Property handleDeleteProperty={handleDeleteProperty} property={property} setProperty={setProperty}/> : <AddListing setUser={setUser}/>}
+        {property ? <Property setUser={setUser} handleDeleteProperty={handleDeleteProperty} property={property} setProperty={setProperty}/> : <AddListing setUser={setUser}/>}
         <FavoriteCont />
     </div>
   )

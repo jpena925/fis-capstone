@@ -4,7 +4,6 @@ import { UserContext } from '../../App'
 
 function FavoriteCont() {
     const user = useContext(UserContext)
-
     
     const cardMap = user ?
         user.favorites.map(fav => <Card key={fav.id} props={fav.property}/>) : <p>No Favorites Yet</p>
