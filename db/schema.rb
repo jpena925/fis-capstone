@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2022_04_05_192217) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "favorites", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "property_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "property_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["property_id"], name: "index_favorites_on_property_id"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 2022_04_05_192217) do
 
   create_table "images", force: :cascade do |t|
     t.string "image_url"
-    t.integer "property_id", null: false
+    t.bigint "property_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["property_id"], name: "index_images_on_property_id"
@@ -40,7 +43,7 @@ ActiveRecord::Schema.define(version: 2022_04_05_192217) do
     t.date "date_available"
     t.text "features"
     t.boolean "landlord"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_properties_on_user_id"
