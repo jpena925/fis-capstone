@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/kairos/static/css/main.923c8ecd.css",
+    "main.js": "/kairos/static/js/main.8042e91b.js",
+    "static/media/kairos1.png": "/kairos/static/media/kairos1.4197124b00389d88949e.png",
+    "index.html": "/kairos/index.html",
+    "main.923c8ecd.css.map": "/kairos/static/css/main.923c8ecd.css.map",
+    "main.8042e91b.js.map": "/kairos/static/js/main.8042e91b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.923c8ecd.css",
+    "static/js/main.8042e91b.js"
+  ]
+}
