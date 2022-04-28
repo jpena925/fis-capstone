@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://jpena925.github.io/kairos/",
-  "proxy": "https://aqueous-shore-45744.herokuapp.com/",
   "engines": {
     "node": "16.x"
   },
