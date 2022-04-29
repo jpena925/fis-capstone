@@ -14,7 +14,7 @@ function ProfilePage({setUser}) {
     }, [user])
 
     function handleDeleteProperty(){
-        fetch(`/properties/${user?.property.id}`, {
+        fetch(`https://morning-oasis-53860.herokuapp.com/properties/${user?.property.id}`, {
             method: 'DELETE'
         })
         .then(() => setUser({...user, property: null}))

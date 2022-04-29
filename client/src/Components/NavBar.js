@@ -23,7 +23,7 @@ function NavBar({ setUser }) {
     }
 
     function clickedLogout (){
-        fetch('/logout', {
+        fetch('https://morning-oasis-53860.herokuapp.com/logout', {
             method: 'DELETE'
         })
         setUser(null)

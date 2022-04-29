@@ -11,7 +11,7 @@ function Card({ props, setUser }) {
 
     function handleLike(type){
         if(type === 'like'){
-            fetch('/favorites', {
+            fetch('https://morning-oasis-53860.herokuapp.com/favorites', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -26,7 +26,7 @@ function Card({ props, setUser }) {
             
         } else {
             const favId = userFavorites.find(el => el.property.id === props.id).id
-            fetch(`/favorites/${favId}`, {
+            fetch(`https://morning-oasis-53860.herokuapp.com/favorites/${favId}`, {
                 method: 'DELETE',
             })
             .then(setUserFavorites([...userFavorites.filter(fav => fav.id !== favId)]))

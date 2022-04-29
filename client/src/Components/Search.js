@@ -7,7 +7,7 @@ function Search() {
 
     function handleZipSearch(e){
         e.preventDefault()
-        navigate(`/home?search=${search}`)
+        navigate(`https://morning-oasis-53860.herokuapp.com/home?search=${search}`)
     }
 
     return (

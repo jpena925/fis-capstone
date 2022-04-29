@@ -30,7 +30,7 @@ function AddListing({setUser}) {
     function handleAddFormSubmit(e){
         e.preventDefault()
         console.log(user)
-        fetch('/properties', {
+        fetch('https://morning-oasis-53860.herokuapp.com/properties', {
             method: 'POST',
             headers: {'Content-Type' : 'application/json'},
             body: JSON.stringify(addFormData)
