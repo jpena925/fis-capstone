@@ -1,4 +1,4 @@
-require_relative '../../.zip_key.rb'
+# require_relative '../../.zip_key.rb'
 
 class PropertiesController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_res
@@ -49,7 +49,7 @@ class PropertiesController < ApplicationController
 
     def filtered
 
-        response = HTTParty.get("http://www.zipcodeapi.com/rest/#{$zip_key}/radius.json/#{params[:search]}/#{params[:radius]}/miles?minimal")
+        response = HTTParty.get("http://www.zipcodeapi.com/rest/JNhydahoj4fQhWK31bOjEi8wsfWM2SzPwqhJQtkSN38aagmNTJ0RZfuGueRCXAPw/radius.json/#{params[:search]}/#{params[:radius]}/miles?minimal")
         zipArray = JSON.parse(response.body)["zip_codes"]
         #params[:search], params[:br], params[:ba], params[:price], params[:pets], params[:radius]
         properties = Property.all.filter{|p| zipArray.include?(p[:zip].to_s)}
