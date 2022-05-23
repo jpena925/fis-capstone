@@ -40,7 +40,6 @@ function PropertyPage({user, setUser}) {
             setLiked(false)
         }
     }
-    console.log(user)
     
     return (
         <div>{property ?
