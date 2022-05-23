@@ -16,7 +16,7 @@ function Homepage({setUser}) {
     const [filtered, setFiltered] = useState(null)
 
     useEffect(() => {
-        fetch('/properties')
+        fetch('https://morning-oasis-53860.herokuapp.com/properties')
         .then(r => r.json())
         .then(data => setFeed(data))
     }, [])
@@ -24,7 +24,7 @@ function Homepage({setUser}) {
   
     function handleHomeSearch(e){
         e.preventDefault()
-        fetch(`/filtered?search=${homeSearch}&radius=${filters.radius}&br=${filters.br}&ba=${filters.ba}&price=${filters.price}&pets=${filters.pets}`)
+        fetch(`https://morning-oasis-53860.herokuapp.com/filtered?search=${homeSearch}&radius=${filters.radius}&br=${filters.br}&ba=${filters.ba}&price=${filters.price}&pets=${filters.pets}`)
         .then(r => r.json())
         .then(data => setFiltered(data))
         setHomeSearch(() => '')

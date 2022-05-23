@@ -17,7 +17,7 @@ function SignupModal({ setSignUpModalOn, setUser }) {
     const handleSignUp = (e) => {
         e.preventDefault()
         console.log(signUpData)
-        fetch('/users', {
+        fetch('https://morning-oasis-53860.herokuapp.com/users', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -9,7 +9,7 @@ function Landing() {
   const [recent, setRecent] = useState(null)
 
   useEffect(() => {
-    fetch('/recent')
+    fetch('https://morning-oasis-53860.herokuapp.com/recent')
     .then(r => r.json())
     .then(data => setRecent(data))
   }, [])

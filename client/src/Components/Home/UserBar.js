@@ -12,7 +12,7 @@ function UserBar() {
 
     const favoriteMap = user ?
         user?.favorites.map(fav => 
-            <Link to={`/property/${fav.property?.id}`} 
+            <Link to={`https://morning-oasis-53860.herokuapp.com/property/${fav.property?.id}`} 
                 key={fav.id} 
                 className='text-xs block mr-5 mt-5  text-gray-500 hover:text-blue-600'>
             {fav.property?.address}

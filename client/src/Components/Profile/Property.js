@@ -17,7 +17,7 @@ function Property({ handleDeleteProperty, property, setProperty, setUser }) {
 
     function handleSubmitEditProperty(e){
         e.preventDefault()
-        fetch(`/properties/${property.id}`, {
+        fetch(`https://morning-oasis-53860.herokuapp.com/properties/${property.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'

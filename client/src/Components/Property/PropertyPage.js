@@ -10,7 +10,7 @@ function PropertyPage({user, setUser}) {
     const [liked, setLiked] = useState(favIDs && favIDs.includes(parseInt(id)))
     
     useEffect(() => {
-        fetch(`/properties/${id}`)
+        fetch(`https://morning-oasis-53860.herokuapp.com/properties/${id}`)
         .then(r => r.json())
         .then(property => setProperty(property))
     }, [])
@@ -33,7 +33,7 @@ function PropertyPage({user, setUser}) {
         } else {
             let unlikeID = user?.favorites.find(p => p.property.id === parseInt(id)).id
             console.log(unlikeID)
-            fetch(`/favorites/${unlikeID}`, {
+            fetch(`https://morning-oasis-53860.herokuapp.com/favorites/${unlikeID}`, {
                 method: 'DELETE'
             })
             .then(setUser(user => ({...user, favorites: user.favorites.filter(fav => fav.property.id !== parseInt(id))})))

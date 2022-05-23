@@ -15,7 +15,7 @@ function UserInfo({ setUser }) {
     function handleEditContactSubmit(e){
         e.preventDefault()
         setShowErrors(() => false)
-        fetch(`/users/${user?.id}`, {
+        fetch(`https://morning-oasis-53860.herokuapp.com/users/${user?.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
