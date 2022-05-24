@@ -29,10 +29,10 @@ function App() {
     <UserContext.Provider value={user}>
     <NavBar setUser={setUser} />
     <Routes>
-      <Route exact path="/" element={<Landing />} />
-      <Route exact path="/home" element={<Homepage setUser={setUser}/>} />
-      <Route exact path='/profile' element={<ProfilePage setUser={setUser} />} />
-      <Route exact path='/property/:id' element={<PropertyPage user={user} setUser={setUser}/>} />
+      <Route exact path="/kairos/" element={<Landing />} />
+      <Route exact path="/kairos/home" element={<Homepage setUser={setUser}/>} />
+      <Route exact path='/kairos/profile' element={<ProfilePage setUser={setUser} />} />
+      <Route exact path='/kairos/property/:id' element={<PropertyPage user={user} setUser={setUser}/>} />
     </Routes>
     <Footer />
     </UserContext.Provider>

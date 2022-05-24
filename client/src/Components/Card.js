@@ -50,7 +50,7 @@ function Card({ props, setUser }) {
                     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{props?.ba} Baths</span>
                 </div>
                 <div className="flex px-6 pt-4 pb-10">
-                    <Link className="inline-block bg-slate-500 rounded-full px-4 py-1 font-bold text-white mr-2 mb-2" to={`/property/${props?.id}`}>View Property</Link>
+                    <Link className="inline-block bg-slate-500 rounded-full px-4 py-1 font-bold text-white mr-2 mb-2" to={`/kairos/property/${props?.id}`}>View Property</Link>
                         {user ?
                         <div>
                         {userLikes?.includes(props?.id) ? 
