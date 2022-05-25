@@ -9,9 +9,9 @@ What makes kairos different is that users can list their currently leased rental
 Before you begin, ensure you have met the following requirements:
 * You have installed the latest version of Ruby.
 
-## Using <project_name>
+## Using kairos
 
-To use <project_name>, follow these steps:
+To use kairos, follow these steps:
 In the main directory:
 ```
 bundle install
