@@ -28,7 +28,7 @@ function SignupModal({ setSignUpModalOn, setUser }) {
             if (r.ok) {
                 r.json().then(user => setUser(() => user))
                 setSignUpModalOn(false)
-                navigate('/home')
+                navigate('/kairos/home')
             } else {
                 r.json().then(data => setErrors(data.errors))
                 setShowErrors(true)
