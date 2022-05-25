@@ -26,7 +26,7 @@ function LoginModal({ setLoginModalOn, setUser }) {
             if(r.ok){
                 r.json().then(data => setUser(() => data))
                 setLoginModalOn(false)
-                navigate("/home")
+                navigate("/kairos/home")
             } else {
                 r.json().then(data => setError(data.error))
                 setShowError(true)
